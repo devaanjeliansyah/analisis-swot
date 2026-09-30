@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Deva — Personal SWOT</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --wine: #5b1637;
+    --rose: #c84b7c;
+    --pink: #f7b8cf;
+    --cream: #fff7f8;
+    --blue: #8fd4e8;
+    --purple: #cdb7e8;
+    --text: #251923;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #ffd5e5 0 12%,
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 25%,
+            #bdebf5 0 10%,
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            #e9c3d7 0 12%,
+            transparent 32%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff8fa,
+            #f9eef5 48%,
+            #edfaff
+        );
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+#progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 4px;
+    width: 0;
+
+    background: linear-gradient(
+        90deg,
+        var(--rose),
+        var(--blue)
+    );
+
+    z-index: 1000;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    position: fixed;
+
+    top: 18px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 99;
+
+    width: min(92%, 760px);
+
+    padding: 12px 18px;
+
+    border: 1px solid #ffffffaa;
+
+    background: #ffffffb8;
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 999px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow:
+        0 12px 35px #5b16371c;
+}
+
+.logo {
+    font-weight: 700;
+    color: var(--wine);
+}
+
+nav a {
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    margin-left: 18px;
+
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--rose);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 110px 8% 70px;
+
+    position: relative;
+}
+
+.hero-inner {
+    max-width: 1050px;
+
+    text-align: center;
+}
+
+.eyebrow {
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    font-size: 12px;
+
+    color: var(--rose);
+
+    font-weight: 700;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(
+        55px,
+        10vw,
+        118px
+    );
+
+    line-height: .9;
+
+    color: var(--wine);
+
+    margin: 18px 0;
+}
+
+.hero p {
+    max-width: 650px;
+
+    margin: auto;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #5b4a54;
+}
+
+.hero .name {
+    margin-top: 26px;
+
+    font-weight: 700;
+
+    color: var(--wine);
+}
+
+.cta {
+    display: inline-flex;
+
+    margin-top: 30px;
+
+    padding: 14px 24px;
+
+    border-radius: 999px;
+
+    background: var(--wine);
+
+    color: white;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 12px 28px #5b16373d;
+
+    transition: .3s;
+}
+
+.cta:hover {
+    transform:
+        translateY(-4px)
+        scale(1.02);
+}
+
+/* =========================
+   FLOATING CIRCLES
+========================= */
+
+.float {
+    position: absolute;
+
+    border-radius: 50%;
+
+    animation:
+        float 5s ease-in-out infinite;
+}
+
+.f1 {
+    width: 85px;
+    height: 85px;
+
+    background: #f6a9c5;
+
+    left: 8%;
+    top: 27%;
+}
+
+.f2 {
+    width: 45px;
+    height: 45px;
+
+    background: #8fd4e8;
+
+    right: 12%;
+    top: 32%;
+
+    animation-delay: 1s;
+}
+
+.f3 {
+    width: 60px;
+    height: 60px;
+
+    background: #b987a3;
+
+    right: 7%;
+    bottom: 15%;
+
+    animation-delay: 2s;
+}
+
+@keyframes float {
+
+    50% {
+        transform:
+            translateY(-22px)
+            rotate(12deg);
+    }
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    max-width: 1120px;
+
+    margin: auto;
+
+    padding:
+        95px 7%;
+}
+
+.section-head {
+    text-align: center;
+
+    margin-bottom: 42px;
+}
+
+.section-head h2 {
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 48px;
+
+    color: var(--wine);
+}
+
+.section-head p {
+    margin-top: 10px;
+
+    color: #725f69;
+}
+
+/* =========================
+   SWOT GRID
+========================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+.card {
+    min-height: 300px;
+
+    padding: 30px;
+
+    border-radius: 30px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid #ffffffcc;
+
+    box-shadow:
+        0 18px 45px #5b16371b;
+
+    transition: .35s;
+
+    cursor: pointer;
+}
+
+.card:hover {
+    transform:
+        translateY(-9px)
+        rotate(-.5deg);
+
+    box-shadow:
+        0 25px 55px #5b16372c;
+}
+
+.card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    right: -70px;
+    bottom: -80px;
+
+    background: #ffffff50;
+}
+
+.card .num {
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+
+    opacity: .7;
+}
+
+.card h3 {
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 35px;
+
+    margin:
+        18px 0 10px;
+}
+
+.card p {
+    line-height: 1.7;
+
+    max-width: 460px;
+}
+
+.card ul {
+    margin:
+        18px 0 0 18px;
+
+    line-height: 1.9;
+}
+
+.strength {
+    background:
+        linear-gradient(
+            135deg,
+            #ffd3e1,
+            #fff0f5
+        );
+}
+
+.weak {
+    background:
+        linear-gradient(
+            135deg,
+            #d9c5ef,
+            #f8efff
+        );
+}
+
+.opp {
+    background:
+        linear-gradient(
+            135deg,
+            #bcebf4,
+            #edfaff
+        );
+}
+
+.threat {
+    background:
+        linear-gradient(
+            135deg,
+            #e7c0d0,
+            #fff0f4
+        );
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition: 1s;
+}
+
+.reveal.show {
+    opacity: 1;
+
+    transform: none;
+}
+
+/* =========================
+   THE REAL TAKEAWAY
+========================= */
+
+.twist {
+    background: var(--wine);
+
+    color: #fff;
+
+    padding:
+        100px 8%;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.twist h2 {
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 52px;
+
+    margin-bottom: 18px;
+}
+
+.twist p {
+    max-width: 700px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    color: #f9dfe9;
+}
+
+.secret-btn {
+    margin-top: 30px;
+
+    border:
+        1px solid #ffffff66;
+
+    background:
+        #ffffff12;
+
+    color: #fff;
+
+    padding:
+        14px 24px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    font: inherit;
+
+    transition: .3s;
+}
+
+.secret-btn:hover {
+    background: #ffffff25;
+
+    transform: scale(1.05);
+}
+
+#secret {
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition:
+        max-height .8s ease;
+}
+
+#secret.open {
+    max-height: 500px;
+}
+
+.secret-box {
+    max-width: 700px;
+
+    margin:
+        30px auto 0;
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background:
+        #ffffff12;
+
+    border:
+        1px solid #ffffff25;
+}
+
+.secret-box h3 {
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+/* =========================
+   DEVELOPMENT PLAN
+========================= */
+
+.plan {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 24px;
+}
+
+.plan-card {
+    background: #fff;
+
+    border-radius: 28px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 15px 40px #5b163718;
+
+    border:
+        1px solid #f0dce5;
+}
+
+.plan-card h3 {
+    color: var(--wine);
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.plan-card li {
+    margin:
+        12px 0 0 18px;
+
+    line-height: 1.6;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    color: #765d68;
+}
+
+footer strong {
+    color: var(--wine);
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        #25192399;
+
+    backdrop-filter:
+        blur(8px);
+
+    display: none;
+
+    place-items: center;
+
+    z-index: 500;
+
+    padding: 20px;
+}
+
+.modal.show {
+    display: grid;
+}
+
+.modal-box {
+    max-width: 650px;
+
+    width: 100%;
+
+    background: #fff8fb;
+
+    border-radius: 30px;
+
+    padding: 35px;
+
+    position: relative;
+
+    box-shadow:
+        0 30px 80px #0004;
+
+    animation:
+        modalIn .4s ease;
+}
+
+@keyframes modalIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(.8)
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+
+    right: 20px;
+
+    top: 15px;
+
+    border: 0;
+
+    background: none;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    color: var(--wine);
+}
+
+.modal h3 {
+    font-family:
+        'Playfair Display',
+        serif;
+
+    color: var(--wine);
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+.modal p {
+    line-height: 1.8;
+}
+
+.modal small {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #8a7180;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 700px) {
+
+    nav {
+        width: 94%;
+    }
+
+    nav a {
+        display: none;
+    }
+
+    .grid,
+    .plan {
+        grid-template-columns: 1fr;
+    }
+
+    .section-head h2,
+    .twist h2 {
+        font-size: 39px;
+    }
+
+    .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+}
+
+/* =========================================================
+   VISUAL UPGRADE — CONTENT UNCHANGED
+   Soft tech / editorial / interactive aesthetic
+   ========================================================= */
+
+:root{
+    --glow-pink:#ff76ad;
+    --glow-blue:#72d9ee;
+    --glow-purple:#b89be8;
+    --glass:#ffffff9e;
+}
+
+/* subtle animated atmosphere */
+body::before{
+    animation: bgDrift 14s ease-in-out infinite alternate;
+    background-size:140% 140%;
+}
+@keyframes bgDrift{
+    0%{background-position:0% 0%}
+    100%{background-position:100% 100%}
+}
+
+/* very subtle developer-style grid */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    opacity:.22;
+    background-image:
+        linear-gradient(rgba(91,22,55,.045) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(91,22,55,.045) 1px,transparent 1px);
+    background-size:34px 34px;
+    mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 82%);
+}
+
+/* premium glass navbar */
+nav{
+    background:linear-gradient(135deg,#ffffffc9,#fff8fccc);
+    border-color:#ffffffd9;
+    box-shadow:
+        0 12px 35px #5b16371c,
+        inset 0 1px 0 #fff;
+    transition:.35s ease;
+}
+nav:hover{
+    box-shadow:
+        0 18px 45px #5b16372a,
+        inset 0 1px 0 #fff;
+}
+.logo{
+    letter-spacing:.5px;
+}
+.logo::before{
+    content:"</";
+    display:inline-block;
+    margin-right:5px;
+    color:var(--glow-pink);
+    font-family:monospace;
+    font-size:12px;
+}
+.logo::after{
+    content:">";
+    margin-left:3px;
+    color:var(--glow-blue);
+    font-family:monospace;
+    font-size:12px;
+}
+
+/* navigation links become little UI tabs */
+nav a{
+    position:relative;
+    padding:7px 2px;
+}
+nav a::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-4px;
+    width:0;
+    height:2px;
+    border-radius:99px;
+    background:linear-gradient(90deg,var(--glow-pink),var(--glow-blue));
+    transform:translateX(-50%);
+    transition:.3s ease;
+}
+nav a:hover::after{
+    width:100%;
+}
+
+/* hero typography polish */
+.eyebrow{
+    position:relative;
+    display:inline-block;
+}
+.eyebrow::before{
+    content:"// ";
+    font-family:monospace;
+    color:var(--glow-blue);
+}
+.hero h1{
+    text-shadow:
+        0 3px 0 #ffffff,
+        0 12px 35px #5b163718;
+}
+.hero .name{
+    position:relative;
+}
+.hero .name::before{
+    content:"";
+    display:block;
+    width:55px;
+    height:1px;
+    margin:0 auto 13px;
+    background:linear-gradient(90deg,transparent,var(--glow-pink),transparent);
+}
+.cta{
+    position:relative;
+    overflow:hidden;
+}
+.cta::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:65%;
+    height:100%;
+    background:linear-gradient(100deg,transparent,#ffffff55,transparent);
+    transform:skewX(-20deg);
+    transition:.55s ease;
+}
+.cta:hover::before{
+    left:140%;
+}
+
+/* floating shapes become softer and more dimensional */
+.float{
+    filter:blur(.1px);
+    box-shadow:
+        inset -10px -12px 20px #5b163714,
+        0 18px 35px #5b163716;
+}
+.f1{background:linear-gradient(135deg,#ffb4ce,#f5d6e3)}
+.f2{background:linear-gradient(135deg,#8fd4e8,#d9f6fc)}
+.f3{background:linear-gradient(135deg,#b987a3,#e6cfe0)}
+
+/* section heading */
+.section-head h2{
+    text-shadow:0 5px 20px #5b163710;
+}
+.section-head p{
+    max-width:620px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* SWOT cards — more depth, less "AI template" */
+.card{
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-color:#ffffffd8;
+    box-shadow:
+        0 18px 45px #5b16371b,
+        inset 0 1px 0 #ffffff;
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        box-shadow .45s ease,
+        border-color .35s ease;
+}
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    background:
+        linear-gradient(115deg,#ffffff40,transparent 35%),
+        radial-gradient(circle at 90% 5%,#ffffff80,transparent 22%);
+    pointer-events:none;
+    opacity:.75;
+}
+.card::after{
+    transition:.5s ease;
+}
+.card:hover::after{
+    transform:scale(1.35);
+    opacity:.65;
+}
+.card:hover{
+    transform:translateY(-11px) rotate(-.7deg);
+    box-shadow:
+        0 28px 65px #5b16372b,
+        0 0 0 1px #ffffffaa,
+        0 0 35px #c84b7c16;
+}
+
+/* tiny "system label" feeling */
+.card .num{
+    font-family:monospace;
+    font-size:10px;
+    letter-spacing:2.5px;
+    color:#795769;
+}
+.card h3{
+    letter-spacing:-.3px;
+}
+.card ul li{
+    transition:.25s ease;
+}
+.card:hover ul li{
+    transform:translateX(3px);
+}
+
+/* modal feels more premium */
+.modal{
+    background:#251923a8;
+}
+.modal-box{
+    border:1px solid #ffffffd9;
+    background:
+        radial-gradient(circle at 100% 0%,#ffd7e733,transparent 30%),
+        linear-gradient(145deg,#fffafd,#fff2f7);
+    box-shadow:
+        0 30px 80px #0004,
+        0 0 0 1px #ffffff30 inset;
+}
+.modal-box::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:4px;
+    border-radius:30px 30px 0 0;
+    background:linear-gradient(90deg,var(--glow-pink),var(--glow-purple),var(--glow-blue));
+}
+.close{
+    transition:.25s;
+}
+.close:hover{
+    transform:rotate(90deg) scale(1.1);
+}
+
+/* real takeaway becomes cinematic */
+.twist{
+    background:
+        radial-gradient(circle at 15% 20%,#ff75aa20,transparent 25%),
+        radial-gradient(circle at 85% 75%,#72d9ee18,transparent 25%),
+        linear-gradient(135deg,#4b102d,#65193f 50%,#421329);
+}
+.twist::before,
+.twist::after{
+    content:"";
+    position:absolute;
+    border:1px solid #ffffff12;
+    border-radius:50%;
+    pointer-events:none;
+}
+.twist::before{
+    width:420px;height:420px;
+    right:-220px;top:-220px;
+}
+.twist::after{
+    width:300px;height:300px;
+    left:-170px;bottom:-170px;
+}
+.secret-btn{
+    box-shadow:0 10px 30px #0002;
+}
+.secret-btn:hover{
+    box-shadow:0 15px 35px #0003;
+}
+
+/* plan cards */
+.plan-card{
+    position:relative;
+    overflow:hidden;
+    transition:.35s ease;
+}
+.plan-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 24px 50px #5b163725;
+}
+.plan-card::after{
+    content:"</>";
+    position:absolute;
+    right:-8px;
+    bottom:-24px;
+    font:700 82px/1 monospace;
+    color:#5b163707;
+    transform:rotate(-10deg);
+    pointer-events:none;
+}
+
+/* scroll reveal slightly smoother */
+.reveal{
+    transform:translateY(28px) scale(.985);
+    filter:blur(2px);
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.8,.2,1),
+        filter .8s ease;
+}
+.reveal.show{
+    transform:none;
+    filter:none;
+}
+
+/* progress line glow */
+#progress{
+    height:3px;
+    box-shadow:0 0 12px #c84b7c88;
+}
+
+/* custom pointer glow */
+#pointerGlow{
+    position:fixed;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:1;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle,#ff76ad16 0%,#8fd4e808 42%,transparent 70%);
+    transition:opacity .3s ease;
+}
+
+/* little sparkle particles created by JS */
+.visual-spark{
+    position:fixed;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:0;
+    background:#c84b7c;
+    box-shadow:0 0 12px #c84b7c88;
+    animation:sparkFloat var(--duration) ease-in-out infinite;
+    animation-delay:var(--delay);
+    opacity:0;
+}
+@keyframes sparkFloat{
+    0%,100%{opacity:0;transform:translateY(12px) scale(.6)}
+    25%{opacity:.45}
+    50%{opacity:.2;transform:translateY(-20px) scale(1)}
+    75%{opacity:.4}
+}
+
+/* mobile: keep it elegant, not crowded */
+@media(max-width:700px){
+    body::after{background-size:27px 27px;opacity:.16}
+    .card:hover{transform:translateY(-6px)}
+    .hero h1{text-shadow:0 3px 0 #fff}
+    #pointerGlow{display:none}
+}
+
+
+/* =========================================================
+   EXTRA VISUAL UPGRADE — animated portfolio presentation
+   ========================================================= */
+
+/* smoother overall rendering */
+html { scroll-behavior:smooth; }
+body { perspective:1200px; }
+
+/* animated gradient light blobs */
+body::before {
+    background-size:180% 180%;
+    animation: ambientMove 18s ease-in-out infinite alternate;
+}
+@keyframes ambientMove {
+    0% { background-position:0% 0%; transform:scale(1); }
+    50% { background-position:70% 35%; transform:scale(1.04); }
+    100% { background-position:100% 100%; transform:scale(1); }
+}
+
+/* glowing progress bar */
+#progress {
+    height:4px;
+    background:linear-gradient(90deg,#ff6fae,#cdb7e8,#72d9ee,#ff6fae);
+    background-size:250% 100%;
+    animation:progressGlow 4s linear infinite;
+}
+@keyframes progressGlow {
+    to { background-position:250% 0; }
+}
+
+/* hero entrance */
+.hero-inner {
+    animation:heroReveal 1.1s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes heroReveal {
+    from { opacity:0; transform:translateY(35px) scale(.96); filter:blur(8px); }
+    to { opacity:1; transform:none; filter:none; }
+}
+
+/* eyebrow has a tiny scanning effect */
+.eyebrow {
+    animation:eyebrowPulse 3s ease-in-out infinite;
+}
+@keyframes eyebrowPulse {
+    0%,100% { letter-spacing:4px; opacity:.82; }
+    50% { letter-spacing:5px; opacity:1; }
+}
+
+/* heading gradient shine */
+.hero h1 {
+    background:linear-gradient(110deg,#5b1637 20%,#c84b7c 45%,#5b1637 70%);
+    background-size:220% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:titleShine 6s ease-in-out infinite;
+}
+@keyframes titleShine {
+    0%,100% { background-position:0% center; }
+    50% { background-position:100% center; }
+}
+
+/* CTA heartbeat/glow */
+.cta {
+    animation:ctaFloat 3.5s ease-in-out infinite;
+    box-shadow:0 12px 28px #5b16373d, 0 0 0 rgba(200,75,124,0);
+}
+@keyframes ctaFloat {
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-3px); }
+}
+.cta:hover {
+    animation:none;
+    box-shadow:0 16px 35px #5b16374d, 0 0 25px #c84b7c33;
+}
+
+/* floating bubbles have different motion */
+.f1 { animation:floatOne 6s ease-in-out infinite; }
+.f2 { animation:floatTwo 7s ease-in-out infinite; }
+.f3 { animation:floatThree 8s ease-in-out infinite; }
+
+@keyframes floatOne {
+    0%,100% { transform:translate(0,0) rotate(0); }
+    50% { transform:translate(18px,-28px) rotate(18deg); }
+}
+@keyframes floatTwo {
+    0%,100% { transform:translate(0,0) rotate(0); }
+    50% { transform:translate(-15px,22px) rotate(-18deg); }
+}
+@keyframes floatThree {
+    0%,100% { transform:translate(0,0) rotate(0); }
+    50% { transform:translate(12px,-20px) rotate(25deg); }
+}
+
+/* SWOT cards feel interactive */
+.card {
+    transform-style:preserve-3d;
+    will-change:transform;
+}
+.card h3 {
+    position:relative;
+    display:inline-block;
+}
+.card h3::after {
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    border-radius:99px;
+    background:linear-gradient(90deg,#c84b7c,#72d9ee);
+    transition:width .45s ease;
+}
+.card:hover h3::after { width:100%; }
+
+.card li::marker {
+    color:#c84b7c;
+}
+.card ul li {
+    transition:transform .25s ease, opacity .25s ease;
+}
+.card:hover ul li:nth-child(1) { transform:translateX(5px); }
+.card:hover ul li:nth-child(2) { transform:translateX(9px); transition-delay:.04s; }
+.card:hover ul li:nth-child(3) { transform:translateX(13px); transition-delay:.08s; }
+.card:hover ul li:nth-child(4) { transform:translateX(17px); transition-delay:.12s; }
+
+/* section headings reveal with a subtle line */
+.section-head h2 {
+    position:relative;
+    display:inline-block;
+}
+.section-head h2::before {
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-13px;
+    width:55px;
+    height:3px;
+    border-radius:99px;
+    background:linear-gradient(90deg,#ff76ad,#72d9ee);
+    transform:translateX(-50%) scaleX(.4);
+    transition:transform .8s ease;
+}
+.section-head:hover h2::before {
+    transform:translateX(-50%) scaleX(1);
+}
+
+/* REAL TAKEAWAY section gets a subtle animated spotlight */
+.twist {
+    isolation:isolate;
+}
+.twist::before,
+.twist::after {
+    animation:ringOrbit 12s linear infinite;
+}
+.twist::after {
+    animation-direction:reverse;
+}
+@keyframes ringOrbit {
+    0% { transform:rotate(0deg) scale(1); }
+    50% { transform:rotate(180deg) scale(1.08); }
+    100% { transform:rotate(360deg) scale(1); }
+}
+
+.twist h2 {
+    animation:takeawayText 4s ease-in-out infinite;
+}
+@keyframes takeawayText {
+    0%,100% { text-shadow:0 0 0 rgba(255,255,255,0); }
+    50% { text-shadow:0 0 28px rgba(255,118,173,.28); }
+}
+
+/* reveal button */
+.secret-btn {
+    position:relative;
+    overflow:hidden;
+}
+.secret-btn::before {
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:70%;
+    height:100%;
+    background:linear-gradient(100deg,transparent,#ffffff45,transparent);
+    transform:skewX(-20deg);
+    transition:.65s ease;
+}
+.secret-btn:hover::before { left:145%; }
+
+/* secret box has a soft "unlock" feel */
+#secret.open .secret-box {
+    animation:secretReveal .75s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes secretReveal {
+    from { opacity:0; transform:translateY(20px) scale(.96); }
+    to { opacity:1; transform:none; }
+}
+
+/* development plan cards */
+.plan-card h3 {
+    position:relative;
+}
+.plan-card h3::before {
+    content:"✦";
+    display:inline-block;
+    margin-right:8px;
+    color:#c84b7c;
+    animation:starSpin 4s linear infinite;
+}
+@keyframes starSpin {
+    0%,80% { transform:rotate(0deg); }
+    90% { transform:rotate(25deg) scale(1.12); }
+    100% { transform:rotate(0deg); }
+}
+
+/* footer sparkle */
+footer strong {
+    display:inline-block;
+    animation:nameBounce 2.8s ease-in-out infinite;
+}
+@keyframes nameBounce {
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-3px); }
+}
+
+/* modal entrance feels more dynamic */
+.modal.show .modal-box {
+    animation:modalPop .55s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes modalPop {
+    0% { opacity:0; transform:scale(.82) translateY(35px) rotateX(8deg); }
+    70% { transform:scale(1.015) translateY(-3px) rotateX(0); }
+    100% { opacity:1; transform:scale(1) translateY(0) rotateX(0); }
+}
+
+/* responsive */
+@media(max-width:700px){
+    .hero h1 {
+        background:none;
+        -webkit-text-fill-color:var(--wine);
+        animation:none;
+    }
+    .eyebrow { animation:none; }
+    .cta { animation:none; }
+    .card:hover { transform:translateY(-6px); }
+}
+
+
+.hero-status {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:12px;
+    padding:7px 12px;
+    border:1px solid #ffffffcc;
+    border-radius:999px;
+    background:#ffffff88;
+    backdrop-filter:blur(10px);
+    color:#725f69;
+    font:500 11px/1 monospace;
+    box-shadow:0 8px 25px #5b16370e;
+}
+.status-dot {
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#61d89b;
+    box-shadow:0 0 0 4px #61d89b22, 0 0 12px #61d89b99;
+    animation:statusPulse 1.8s ease-in-out infinite;
+}
+@keyframes statusPulse {
+    0%,100% { transform:scale(.85); opacity:.65; }
+    50% { transform:scale(1.15); opacity:1; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     PROGRESS BAR
+========================= -->
+
+<div id="progress"></div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+    <div class="logo">
+        DEVA.
+    </div>
+
+    <div>
+
+        <a href="#swot">
+            SWOT
+        </a>
+
+        <a href="#twist">
+            THE REAL TAKEAWAY
+        </a>
+
+        <a href="#plan">
+            MY PLAN
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+    <span class="float f1"></span>
+    <span class="float f2"></span>
+    <span class="float f3"></span>
+
+    <div class="hero-inner reveal">
+
+        <div class="eyebrow">
+            Personal SWOT Analysis · Self Reflection
+        </div>
+
+        <h1>
+            Know Me
+            <br>
+            Beyond the Surface.
+        </h1>
+
+        <p>
+            “Aku nggak selalu tahu jawabannya dari awal.
+            Tapi aku selalu bisa mencari jalan untuk menemukannya.”
+        </p>
+
+        <div class="name">
+            Deva Anjeliansyah Putri
+            · Universitas PGRI Yogyakarta
+        </div>
+        <div class="hero-status">
+            <span class="status-dot"></span>
+            currently building my next version...
+        </div>
+
+        <a class="cta" href="#swot">
+            Mulai kenalan →
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     SWOT
+========================= -->
+
+<section class="section" id="swot">
+
+    <div class="section-head reveal">
+
+        <div class="eyebrow">
+            The four sides of me
+        </div>
+
+        <h2>
+            The Four Sides of Me
+        </h2>
+
+        <p>
+            Klik setiap kartu.
+            Jangan cuma lihat judulnya —
+            ada cerita di baliknya.
+        </p>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <!-- STRENGTH -->
+
+        <article
+            class="card strength reveal"
+            onclick="openModal('strength')"
+        >
+
+            <div class="num">
+                01 / INSIDE
+            </div>
+
+            <h3>
+                Strengths ✦
+            </h3>
+
+            <p>
+                Hal-hal dalam diri yang cukup
+                bisa saya andalkan ketika menghadapi
+                perkuliahan dan tantangan.
+            </p>
+
+            <ul>
+
+                <li>
+                    Percaya diri setelah memahami sesuatu
+                </li>
+
+                <li>
+                    Memiliki pendirian ketika sudah menentukan pilihan
+                </li>
+
+                <li>
+                    Tetap berusaha meskipun awalnya merasa bingung
+                </li>
+
+                <li>
+                    Memiliki kemampuan yang cukup baik dalam perhitungan akademik
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <!-- WEAKNESS -->
+
+        <article
+            class="card weak reveal"
+            onclick="openModal('weak')"
+        >
+
+            <div class="num">
+                02 / INSIDE
+            </div>
+
+            <h3>
+                Weaknesses ◌
+            </h3>
+
+            <p>
+                Sisi yang masih perlu saya sadari
+                dan latih, bukan untuk disembunyikan.
+            </p>
+
+            <ul>
+
+                <li>
+                    Berbicara terkadang belibet
+                </li>
+
+                <li>
+                    Tidak terlalu mudah menerima kritik
+                </li>
+
+                <li>
+                    Mudah terdistraksi
+                </li>
+
+                <li>
+                    Sulit mempertahankan konsistensi
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <!-- OPPORTUNITY -->
+
+        <article
+            class="card opp reveal"
+            onclick="openModal('opp')"
+        >
+
+            <div class="num">
+                03 / OUTSIDE
+            </div>
+
+            <h3>
+                Opportunities +
+            </h3>
+
+            <p>
+                Hal-hal di luar diri yang bisa
+                saya manfaatkan untuk berkembang.
+            </p>
+
+            <ul>
+                <li>
+                   Kesempatan untuk mengembangkan diri dalam menyampaikan pendapat
+                </li>
+
+                <li>
+                    Belajar untuk memperluas perspektif melalui interaksi dengan orang lain
+                </li>
+
+                <li>
+                    Kemudahan dalam mendapatkan informasi dari berbagai sumber
+                </li>
+
+                <li>
+                    Kesempatan mengikuti kegiatan dan organisasi
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <!-- THREAT -->
+
+        <article
+            class="card threat reveal"
+            onclick="openModal('threat')"
+        >
+
+            <div class="num">
+                04 / OUTSIDE
+            </div>
+
+            <h3>
+                Threats ×
+            </h3>
+
+            <p>
+                Faktor luar yang dapat menjadi
+                tantangan dalam perjalanan belajar
+                dan karier.
+            </p>
+
+            <ul>
+                <li>
+                    Situasi yang menuntut komunikasi secara spontan
+                </li>
+
+                <li>
+                    Kritik atau penilaian dari lingkungan sekitar
+                </li>
+
+                <li>
+                    Banyaknya gangguan dari lingkungan
+                </li>
+
+                <li>
+                    Perubahan situasi dan rutinitas yang tidak terduga
+                </li>
+
+            </ul>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     THE REAL TAKEAWAY
+========================= -->
+
+<section class="twist" id="twist">
+
+    <div class="reveal">
+
+        <div
+            class="eyebrow"
+            style="color:#f7b8cf"
+        >
+            Wait...
+        </div>
+
+        <h2>
+            SWOT-nya belum selesai.
+        </h2>
+
+        <p>
+            Empat kategori tadi bukan akhir.
+            Justru dari sinilah bagian yang
+            paling penting dimulai.
+        </p>
+
+        <button
+            class="secret-btn"
+            onclick="toggleSecret()"
+        >
+            Buka real takeaway ✦
+        </button>
+
+
+        <div id="secret">
+
+            <div class="secret-box">
+
+                <h3>
+                    “Weakness” bukan berarti berhenti.
+                </h3>
+
+                <p>
+                    Setiap kelemahan yang saya sadari
+                    bisa menjadi titik yang saya latih.
+                    Dan setiap opportunity yang saya punya
+                    bisa menjadi alat untuk membantu proses tersebut.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DEVELOPMENT PLAN
+========================= -->
+
+<section
+    class="section"
+    id="plan"
+>
+
+    <div class="section-head reveal">
+
+        <div class="eyebrow">
+            Next chapter
+        </div>
+
+        <h2>
+            What I Do With It
+        </h2>
+
+        <p>
+            SWOT bukan hanya tentang mengenali diri,
+            tetapi juga menentukan langkah setelahnya.
+        </p>
+
+    </div>
+
+
+    <div class="plan">
+
+
+        <div class="plan-card reveal">
+
+            <h3>
+                Yang ingin saya tingkatkan
+            </h3>
+
+            <ul>
+
+                <li>
+                    Melatih cara berbicara
+                    agar lebih runtut.
+                </li>
+
+                <li>
+                    Belajar menerima kritik
+                    sebagai bahan evaluasi.
+                </li>
+
+                <li>
+                    Mengurangi hal-hal
+                    yang memecah fokus.
+                </li>
+
+                <li>
+                    Membangun kebiasaan
+                    agar lebih konsisten.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="plan-card reveal">
+
+            <h3>
+                Yang ingin saya manfaatkan
+            </h3>
+
+            <ul>
+
+                <li>
+                    Kesempatan untuk mengembangkan diri dalam menyampaikan pendapat.
+                </li>
+
+                <li>
+                    Kesempatan untuk memperluas perspektif melalui interaksi dengan orang lain.
+                </li>
+
+                <li>
+                   Kemudahan mendapatkan informasi untuk menambah pengetahuan.
+                </li>
+
+                <li>
+                    Kesempatan mengikuti kegiatan dan organisasi untuk mendapatkan pengalaman baru.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    Made as a personal reflection by
+    <strong>Deva</strong>
+    · Informatics Student 🌷
+
+</footer>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="modal"
+    onclick="closeModal(event)"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+        <h3 id="modalTitle"></h3>
+
+        <p id="modalText"></p>
+
+        <small id="modalSmall"></small>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   DATA SWOT
+========================= */
+
+const data = {
+
+    strength: {
+
+        title: "Strengths ✦",
+
+        text:
+        "Saya percaya diri ketika sudah memahami sesuatu. " +
+        "Saya juga memiliki pendirian ketika sudah menentukan pilihan, " +
+        "tetap berusaha meskipun awalnya bingung, dan merasa cukup percaya diri " +
+        "ketika menghadapi materi yang berkaitan dengan angka, rumus, serta perhitungan.",
+
+        small:
+        "Inner strength — hal yang sudah ada dan bisa terus dikembangkan."
+
+    },
+
+
+    weak: {
+
+        title: "Weaknesses ◌",
+
+        text:
+        "Saya terkadang suka belibet ketika berbicara. " +
+        "Saya juga masih membutuhkan waktu untuk menerima kritik, " +
+        "cukup mudah terdistraksi, dan terkadang kesulitan mempertahankan " +
+        "konsistensi dalam jangka panjang.",
+
+        small:
+        "Self-awareness — mengenali sisi yang masih perlu dilatih."
+
+    },
+
+
+    opp: {
+
+        title: "Opportunities +",
+
+        text:
+       "Saya memiliki berbagai kesempatan untuk mengembangkan diri, seperti belajar menyampaikan pendapat, " +
+       "memperluas perspektif melalui interaksi dengan orang lain, mendapatkan informasi dari berbagai sumber, " +
+       "serta mengikuti berbagai kegiatan dan organisasi.", 
+        small:
+        "External resources — sesuatu dari luar diri yang bisa dimanfaatkan."
+
+    },
+
+
+    threat: {
+
+        title: "Threats ×",
+
+        text:
+        "Saya juga memiliki beberapa tantangan dari lingkungan sekitar, seperti situasi yang menuntut saya " +
+        "untuk berkomunikasi secara spontan, kritik atau penilaian dari orang lain, berbagai gangguan yang dapat " +
+        "mengalihkan perhatian, serta perubahan situasi dan rutinitas yang terkadang sulit diprediksi.", 
+        small:
+        "External challenge — bukan untuk ditakuti, tetapi perlu diantisipasi."
+
+    }
+
+};
+
+
+/* =========================
+   MODAL
+========================= */
+
+function openModal(type) {
+
+    document.getElementById("modalTitle")
+        .textContent = data[type].title;
+
+    document.getElementById("modalText")
+        .textContent = data[type].text;
+
+    document.getElementById("modalSmall")
+        .textContent = data[type].small;
+
+    document
+        .getElementById("modal")
+        .classList.add("show");
+}
+
+
+function closeModal(e) {
+
+    if (
+        !e ||
+        e.target.id === "modal" ||
+        e.target.classList.contains("close")
+    ) {
+
+        document
+            .getElementById("modal")
+            .classList.remove("show");
+
+    }
+
+}
+
+
+/* =========================
+   THE REAL TAKEAWAY BUTTON
+========================= */
+
+function toggleSecret() {
+
+    document
+        .getElementById("secret")
+        .classList.toggle("open");
+
+}
+
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+const observer =
+new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: .12
+    }
+
+);
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(el => {
+
+        observer.observe(el);
+
+    });
+
+
+/* =========================
+   SCROLL PROGRESS
+========================= */
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        const height =
+            document.documentElement.scrollHeight
+            - window.innerHeight;
+
+        const progress =
+            (window.scrollY / height) * 100;
+
+        document
+            .getElementById("progress")
+            .style.width =
+            progress + "%";
+
+    }
+);
+
+
+/* =========================================================
+   VISUAL MICRO-INTERACTIONS — NO CONTENT CHANGES
+   ========================================================= */
+
+// Cursor glow
+const pointerGlow = document.createElement("div");
+pointerGlow.id = "pointerGlow";
+document.body.appendChild(pointerGlow);
+
+window.addEventListener("mousemove", (e) => {
+    pointerGlow.style.left = e.clientX + "px";
+    pointerGlow.style.top = e.clientY + "px";
+});
+
+// Subtle ambient sparkles
+for(let i = 0; i < 22; i++){
+    const s = document.createElement("span");
+    s.className = "visual-spark";
+    s.style.left = (Math.random() * 100) + "vw";
+    s.style.top = (Math.random() * 100) + "vh";
+    s.style.setProperty("--duration", (5 + Math.random() * 6) + "s");
+    s.style.setProperty("--delay", (-Math.random() * 7) + "s");
+    if(i % 3 === 0) s.style.background = "#8fd4e8";
+    else if(i % 3 === 1) s.style.background = "#cdb7e8";
+    document.body.appendChild(s);
+}
+
+// Gentle 3D movement only on desktop.
+if(window.matchMedia("(min-width: 701px)").matches){
+    document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width - .5;
+            const y = (e.clientY - r.top) / r.height - .5;
+            card.style.transform =
+                `translateY(-10px) rotateX(${(-y * 2.2).toFixed(2)}deg) rotateY(${(x * 2.2).toFixed(2)}deg)`;
+        });
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "";
+        });
+    });
+}
+
+// Soft parallax for the existing floating circles.
+window.addEventListener("scroll", () => {
+    const y = window.scrollY;
+    document.querySelectorAll(".float").forEach((el, i) => {
+        const speed = [.025, .04, .018][i] || .02;
+        el.style.marginTop = `${y * speed}px`;
+    });
+});
+
+</script>
+
+</body>
+</html>
